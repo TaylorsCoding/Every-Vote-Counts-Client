@@ -65,13 +65,13 @@ export default class GetInfoForm extends Component {
         }
       }
       if (street.length > 0) {
-        if (!streetRegex.test(zip)) {
+        if (!streetRegex.test(street)) {
           this.setState({ streetFormatVer: false });
           return;
         }
       }
       if (state.length > 0) {
-        if (!stateRegex.test(zip)) {
+        if (!stateRegex.test(state)) {
           this.setState({ stateVer: false });
           return;
         }
