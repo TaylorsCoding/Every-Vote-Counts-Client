@@ -1,12 +1,17 @@
 .marker-information {
   width: 200px;
-  height: 100px;
+  height: 150px;
   background-color: white;
   position: relative;
-  bottom: 230px;
+  bottom: 200px;
   right: 98px;
   overflow-y: auto;
   padding: 15px;
   z-index: 10;
   border-radius: 10px;
+}
+
+.location-map-marker {
+  width: 28px;
+  height: 30px;
 }

@@ -1,0 +1,90 @@
+.tr-container {
+  margin-bottom: 50%;
+  font-family: "Cormorant Garamond";
+  text-align: center;
+}
+
+.tr-error {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tr-address {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.tr-retry-button {
+  margin-top: 20px;
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Archivo Black";
+  border-radius: 5px;
+  width: 80%;
+}
+
+@media only screen and (min-height: 736px) and (min-width: 400px) {
+  .textresults-container {
+    margin-bottom: 40%;
+  }
+}
+
+@media only screen and (min-height: 800px) and (min-width: 600px) {
+  .textresults-container {
+    margin-bottom: 30%;
+  }
+  .textresults-retry-button {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-height: 1024px) and (min-width: 768px) {
+  .textresults-container {
+    margin-bottom: 20%;
+  }
+  .textresults-retry-button {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 300px) {
+  .textresults-container {
+    margin-bottom: 30%;
+  }
+  .textresults-retry-button {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .textresults-container {
+    margin-bottom: 20%;
+  }
+  .textresults-retry-button {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .textresults-container {
+    margin-bottom: 15%;
+  }
+  .textresults-retry-button {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .textresults-container {
+    margin-bottom: 10%;
+  }
+  .textresults-retry-button {
+    width: 30%;
+  }
+}

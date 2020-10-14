@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import MapMarker from "./mapmarker.png";
+import EarlyMarker from "./earlymarker.png";
+import FusionMarker from "./fusionmarker.png";
 
 import "./Location.css";
 
@@ -11,7 +13,11 @@ export default class Location extends Component {
       information.className = "marker-information";
 
       const name = document.createElement("h3");
-      const nameText = document.createTextNode(this.props.name);
+      const nameText = document.createTextNode(
+        this.props.early
+          ? `${this.props.name}: Early Voting Site`
+          : this.props.name
+      );
       name.appendChild(nameText);
 
       const address = document.createElement("p");
@@ -71,7 +77,24 @@ export default class Location extends Component {
   render() {
     return (
       <div>
-        <img src={MapMarker} onClick={this.handleClick} />
+        <img
+          className="location-map-marker"
+          src={
+            this.props.fusion
+              ? FusionMarker
+              : this.props.early
+              ? EarlyMarker
+              : MapMarker
+          }
+          onClick={this.handleClick}
+          alt={
+            this.props.fusion
+              ? "Drop Off Location/Early Vote Site"
+              : this.props.early
+              ? "Early Vote Site"
+              : "Drop Off Location"
+          }
+        />
       </div>
     );
   }

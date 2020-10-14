@@ -6,6 +6,8 @@ import TokenService from "../../services/token-service";
 
 import UserContext from "../../contexts/UserContext";
 
+import "./LoginPage.css";
+
 export default class LoginPage extends Component {
   static contextType = UserContext;
 
@@ -33,10 +35,10 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <section className="LoginPage">
-        <h2>Login</h2>
+      <div className="login-page-container">
+        <h2 className="login-title">Login</h2>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-      </section>
+      </div>
     );
   }
 }

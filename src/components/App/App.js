@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import AuthApiService from "../../services/auth-api-service";
 import TokenService from "../../services/token-service";
@@ -17,7 +17,9 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import GetInfoPage from "../GetInfoPage/GetInfoPage";
 import InfoResultsPage from "../InfoResultsPage/InfoResultsPage";
 
-const API_KEY = "AIzaSyDDcrN66qx9l3Ytmox2fiYcGl_0HCcmuqw";
+import "./App.css";
+
+const API_KEY = "AIzaSyDQ1gQGmiYylOah3uNrPSCX0j31L_xsC4M";
 
 class App extends Component {
   static contextType = UserContext;
@@ -64,11 +66,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App__header">
+      <div className="app-container">
+        <header className="app-header">
           <Header />
         </header>
-        <main className="App__main">
+        <main className="app-main">
           {this.state.hasError && (
             <p className="red">There was an error! Oh no!</p>
           )}
@@ -88,7 +90,7 @@ class App extends Component {
           </Switch>
         </main>
         <footer>
-          <Footer />
+          <Footer className="app-footer" />
         </footer>
       </div>
     );

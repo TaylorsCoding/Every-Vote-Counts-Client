@@ -4,6 +4,8 @@ import AuthApiService from "../../services/auth-api-service";
 
 import UserContext from "../../contexts/UserContext";
 
+import "./LoginForm.css";
+
 export default class LoginForm extends Component {
   static contextType = UserContext;
 
@@ -33,21 +35,38 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
+      <form className="login-form" onSubmit={this.handleSubmitJwtAuth}>
         <div className="user_name">
-          <label htmlFor="LoginForm__user_name">User name</label>
-          <input required name="user_name" id="LoginForm__user_name" />
+          <div>
+            <label className="loginform-un-label" htmlFor="loginform-username">
+              User name
+            </label>
+          </div>
+          <div>
+            <input required name="user_name" id="loginform-username" />
+          </div>
         </div>
         <div className="password">
-          <label htmlFor="LoginForm__password">Password</label>
-          <input
-            required
-            name="password"
-            type="password"
-            id="LoginForm__password"
-          />
+          <div>
+            <label
+              className="loginform-password-label"
+              htmlFor="LoginForm__password"
+            >
+              Password
+            </label>
+          </div>
+          <div>
+            <input
+              required
+              name="password"
+              type="password"
+              id="LoginForm__password"
+            />
+          </div>
         </div>
-        <input type="submit" value="login" />
+        <div>
+          <input className="loginform-submit" type="submit" value="login" />
+        </div>
       </form>
     );
   }

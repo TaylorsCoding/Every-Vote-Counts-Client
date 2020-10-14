@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 
+import "./RegistrationPage.css";
+
 export default class RegistrationPage extends Component {
   static defaultProps = {
     history: {
@@ -15,12 +17,22 @@ export default class RegistrationPage extends Component {
 
   render() {
     return (
-      <section className="RegistrationPage">
-        <h2>Register</h2>
-        <RegistrationForm
-          onRegistrationSuccess={this.handleRegistrationSuccess}
-        />
-      </section>
+      <div className="regpage-component">
+        <div className="regpage-container">
+          <div className="regpage-row-title">
+            <div className="regpage-col-title">
+              <h1 className="registrationpage-title">Register</h1>
+            </div>
+          </div>
+          <div className="regpage-row-form">
+            <div className="regpage-col-form">
+              <RegistrationForm
+                onRegistrationSuccess={this.handleRegistrationSuccess}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

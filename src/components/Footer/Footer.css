@@ -1,0 +1,39 @@
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  background-color: cornflowerblue;
+  padding: 10px;
+  border-top: 10px solid slategray;
+  height: 100px;
+}
+
+.footer-col1 {
+  width: 50%;
+  display: inline-block;
+}
+
+.footer-link {
+  text-decoration: none;
+  align-self: center;
+  text-align: center;
+}
+
+.footer-autext {
+  color: black;
+  font-family: "Cormorant Garamond";
+}
+
+.footer-tnctext {
+  color: black;
+  font-family: "Cormorant Garamond";
+}
+
+.footer-col2 {
+  width: 50%;
+  display: inline-block;
+}
+
+.footer-copyright {
+  text-align: right;
+  font-family: "Cormorant Garamond";
+}

@@ -3,8 +3,7 @@ import GetInfoForm from "../../components/GetInfoForm/GetInfoForm";
 
 import config from "../../config";
 
-// import AuthApiService from "../../services/auth-api-service";
-// import TokenService from "../../services/token-service";
+import "./GetInfoPage.css";
 
 import UserContext from "../../contexts/UserContext";
 
@@ -36,10 +35,17 @@ export default class GetInfoPage extends Component {
   render() {
     this.handleFalseAccess();
     return (
-      <section className="GetInfoPage">
-        <h2>Get Info</h2>
+      <div className="gip-component">
+        <h1 className="gip-title">Enter an Address</h1>
+        <p className="gip-note">
+          Note: Some addresses will not provide locations and/or information.
+        </p>
+        <p>
+          At a minimum, enter a street address and one other thing (either city,
+          state, or zip-code).
+        </p>
         <GetInfoForm onGetInfoSuccess={this.handleGetInfoSuccess} />
-      </section>
+      </div>
     );
   }
 }

@@ -1,0 +1,32 @@
+.login-form {
+  padding-top: 3%;
+  text-align: center;
+}
+
+.user_name {
+  margin-bottom: 2%;
+}
+
+.loginform-un-label {
+  font-family: "Cormorant Garamond";
+  padding-bottom: 5px;
+}
+
+.loginform-password-label {
+  font-family: "Cormorant Garamond";
+  padding-bottom: 5px;
+}
+
+.loginform-submit {
+  margin-top: 50px;
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Cormorant Garamond";
+  border-radius: 5px;
+}

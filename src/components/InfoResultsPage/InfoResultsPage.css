@@ -1,0 +1,68 @@
+.irp-component {
+  font-family: "Cormorant Garamond";
+}
+
+.irp-title-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -10px;
+}
+
+.irp-title {
+  border-bottom: 3px solid red;
+}
+
+.irp-legend-container {
+  margin-bottom: 40px;
+  display: none;
+}
+
+.irp-dropoff-label-mobile,
+.irp-fusion-label-mobile,
+.irp-early-label-mobile {
+  display: block;
+}
+
+.irp-legend-row-mobile {
+  display: flexbox;
+  text-align: center;
+}
+.irp-legend-row {
+  display: flex;
+  text-align: center;
+}
+
+.irp-legend-col {
+  display: flex;
+  align-items: center;
+}
+
+.irp-dropoff-label {
+  padding-right: 20px;
+}
+
+.irp-legend-col2 {
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  top: 40px;
+  left: 20px;
+}
+.irp-fusion-label {
+  width: 300px;
+}
+
+.irp-early-label {
+  padding-left: 20px;
+}
+
+.irp-image {
+  width: 28px;
+  height: 30px;
+}
+
+.irp-fusionsite-image {
+  position: relative;
+  bottom: 30px;
+  left: 125px;
+}
