@@ -6,13 +6,17 @@ import "./TextResults.css";
 export default function TextResults(props) {
   return (
     <div className="tr-container">
-      {props.locations ? null : props.address.line1 ||
+      {props.locations ? null : props.address ? (
+        props.address.line1 ||
         props.address.city ||
         props.address.state ||
         props.address.zip ? (
-        <h3 className="tr-error">Oops! We had trouble finding locations.</h3>
+          <h3 className="tr-error">Oops! We had trouble finding locations.</h3>
+        ) : (
+          <h3>Oops! Looks like no information at all is available.</h3>
+        )
       ) : (
-        <h3>Oops! Looks like no information at all is available.</h3>
+        <h3 className="tr-error">Oops! We had trouble finding locations.</h3>
       )}
       {props.address ? (
         props.address.line1 ||

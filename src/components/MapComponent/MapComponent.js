@@ -12,7 +12,11 @@ export default class MapComponent extends Component {
     zoom: 11,
   };
 
-  state = { locs: this.props.locs, early: this.props.early, fusion: [] };
+  state = {
+    locs: this.props.locs ? this.props.locs : [],
+    early: this.props.early ? this.props.early : [],
+    fusion: [],
+  };
 
   componentDidMount() {
     this.organizeLocations();

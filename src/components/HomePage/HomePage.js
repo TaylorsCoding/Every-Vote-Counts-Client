@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 import TokenService from "../../services/token-service";
 
 import UserContext from "../../contexts/UserContext";
-import { NavLink } from "react-router-dom";
 
 import "./HomePage.css";
 
@@ -26,7 +26,52 @@ export default class HomePage extends Component {
 
     return (
       <div className="homepage-container">
-        {currentUser.user ? null : (
+        {currentUser.user ? (
+          <div>
+            <h1 className="homepage-welcome-title">
+              <span className="homepage-welcome-titletext">
+                Welcome, {currentUser.user.full_name}!
+              </span>
+            </h1>
+            <div className="homepage-wi-container">
+              <p className="homepage-welcome-information">
+                Press the Get Info button to enter an address and get your
+                voting locations! On top of that, it will most likely provide
+                you (depending on what the Google Civic Information API
+                provides) with websites that give you a variety of information,
+                including voting registration, voting regulation, and your local
+                electorates.
+              </p>
+            </div>
+            <div className="homepage-actions-container">
+              <div className="homepage-getinfobutton-container">
+                <NavLink to="/getinfo">
+                  <button className="homepage-getinfo-button">Get Info</button>
+                </NavLink>
+              </div>
+              {currentUser.user.addresses ? (
+                currentUser.user.addresses.length > 0 ? (
+                  <div className="homepage-savedaddresses-container">
+                    <NavLink to="/savedaddresses">
+                      <button className="homepage-gsa-button">
+                        Saved Addresses
+                      </button>
+                    </NavLink>
+                  </div>
+                ) : null
+              ) : null}
+
+              <div className="homepage-logoutbutton-container">
+                <button
+                  className="homepage-logout-button"
+                  onClick={this.logout}
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
           <div className="homepage-notloggedincomp">
             <h1 className="homepage-welcome-title">
               <span className="homepage-welcome-titletext">WELCOME</span>
@@ -60,41 +105,6 @@ export default class HomePage extends Component {
             </div>
           </div>
         )}
-
-        {currentUser.user ? (
-          <div>
-            <h1 className="homepage-welcome-title">
-              <span className="homepage-welcome-titletext">
-                Welcome, {currentUser.user.full_name}!
-              </span>
-            </h1>
-            <div className="homepage-wi-container">
-              <p className="homepage-welcome-information">
-                Press the Get Info button to enter an address and get your
-                voting locations! On top of that, it will most likely provide
-                you (depending on what the Google Civic Information API
-                provides) with websites that give you a variety of information,
-                including voting registration, voting regulation, and your local
-                electorates.
-              </p>
-            </div>
-            <div className="homepage-actions-container">
-              <div className="homepage-getinfobutton-container">
-                <NavLink to="/getinfo">
-                  <button className="homepage-getinfo-button">Get Info</button>
-                </NavLink>
-              </div>
-              <div className="homepage-logoutbutton-container">
-                <button
-                  className="homepage-logout-button"
-                  onClick={this.logout}
-                >
-                  Logout
-                </button>
-              </div>
-            </div>
-          </div>
-        ) : null}
       </div>
     );
   }

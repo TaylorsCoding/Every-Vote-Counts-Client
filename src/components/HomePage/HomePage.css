@@ -22,7 +22,8 @@
 .homepage-loginbutton-container,
 .homepage-cabutton-container,
 .homepage-getinfobutton-container,
-.homepage-logoutbutton-container {
+.homepage-logoutbutton-container,
+.homepage-savedaddresses-container {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
@@ -31,7 +32,8 @@
 .homepage-login-button,
 .homepage-ca-button,
 .homepage-getinfo-button,
-.homepage-logout-button {
+.homepage-logout-button,
+.homepage-gsa-button {
   background-color: red;
   border: none;
   color: white;
@@ -58,27 +60,4 @@
 
 .homepage-link {
   display: block;
-}
-
-@media only screen and (min-width: 768px) {
-  .homepage-wi-container {
-    padding-left: 15%;
-    padding-right: 15%;
-  }
-  .homepage-actions-container {
-    padding-top: 10%;
-  }
-  .homepage-login-container {
-    padding-bottom: 10%;
-  }
-  .homepage-ca-container {
-    padding-top: 5%;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .homepage-wi-container {
-    padding-left: 25%;
-    padding-right: 25%;
-  }
 }

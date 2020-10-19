@@ -18,6 +18,10 @@ export default class LoginPage extends Component {
     },
   };
 
+  state = {
+    error: null,
+  };
+
   handleLoginSuccess = () => {
     if (TokenService.hasAuthToken()) {
       AuthApiService.getUser(TokenService.getAuthToken())
@@ -25,7 +29,7 @@ export default class LoginPage extends Component {
           this.context.setUser(res);
         })
         .catch((err) => {
-          console.error(err);
+          this.setState({ error: err });
         });
     }
     const { location, history } = this.props;
@@ -37,6 +41,18 @@ export default class LoginPage extends Component {
     return (
       <div className="login-page-container">
         <h2 className="login-title">Login</h2>
+        <div className="lp-error-container">
+          {this.state.error ? this.state.error.error : null}
+        </div>
+        <div className="lp-demo-cred-container">
+          <p>Demo Credentials: </p>
+          <p>
+            Username: <span className="lp-readable">test</span>
+          </p>
+          <p>
+            Password: <span className="lp-readable">Tester12!</span>
+          </p>
+        </div>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
       </div>
     );

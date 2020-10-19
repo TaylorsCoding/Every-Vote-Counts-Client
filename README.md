@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Every Vote Counts
 
-## Available Scripts
+- Link to app: http://every-vote-counts.vercel.app
 
-In the project directory, you can run:
+## Summary
 
-### `npm start`
+Every Vote Counts allows you to find voting information near an address you input, as well as other information. In order to do this, you create an account and then log in. If one would like to save an address, one may save up to 5.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Homepage (not logged in)
+  ![Image of Homepage](./screenshots/homepagenot.png)
 
-### `npm test`
+- Homepage (logged in)
+  ![Image of Homepage](./screenshots/homepageyes.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Create Account Page
+  ![Image of Homepage](./screenshots/register.png)
 
-### `npm run build`
+- Get Info Page
+  ![Image of Homepage](./screenshots/getinfopage.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Results Page
+  ![Image of Homepage](./screenshots/resultspage.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Location information displayed on results page
+  ![Image of Homepage](./screenshots/resultspagemarker.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Other information displayed on results page
+  ![Image of Homepage](./screenshots/resultspagebot.png)
 
-### `npm run eject`
+- Saved addresses page
+  ![Image of Homepage](./screenshots/savedaddresses.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technology
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The PERN stack is used for this app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Client Side:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+React is used, with a heavy implementation of react-router-dom. Contexts and services are used to facilitate functionality for the page. Two Google APIs are used, the Civic Information API and the Maps API. They are used in tandem to provide a detailed account of voting information near the address entered.

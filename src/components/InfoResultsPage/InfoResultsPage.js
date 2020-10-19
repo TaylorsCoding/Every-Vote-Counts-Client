@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 
-import MapComponent from "../MapComponent/MapComponent";
-
 import config from "../../config";
+
+import UserContext from "../../contexts/UserContext";
+
+import UserService from "../../services/user-service";
+import TokenService from "../../services/token-service";
+
+import MapComponent from "../MapComponent/MapComponent";
 import TextResults from "../TextResults/TextResults";
 
 import "./InfoResultsPage.css";
@@ -12,11 +17,18 @@ import EarlyMarker from "./earlymarker.png";
 import FusionMarker from "./fusionmarker.png";
 
 export default class InfoResultsPage extends Component {
+  static contextType = UserContext;
+
   static defaultProps = {
     location: {},
     history: {
       push: () => {},
     },
+  };
+
+  state = {
+    addressSaved: false,
+    error: null,
   };
 
   handleFalseAccess = () => {
@@ -67,6 +79,100 @@ export default class InfoResultsPage extends Component {
     }
   };
 
+  determineIfSavable = (user) => {
+    if (this.determineIfSaved(user)) {
+      return null;
+    } else {
+      if (
+        user &&
+        user.user &&
+        user.user.addresses &&
+        user.user.addresses.length >= 5
+      ) {
+        return null;
+      } else {
+        return (
+          <div className="irp-save-address-container">
+            <button
+              className="irp-save-address-button"
+              onClick={this.saveAddress}
+            >
+              Save Address
+            </button>
+          </div>
+        );
+      }
+    }
+  };
+
+  determineIfSaved = (user) => {
+    const storedAddress = window.localStorage.getItem("address")
+      ? JSON.parse(window.localStorage.getItem("address"))
+      : "";
+
+    const address = `${`${storedAddress.line1}, `}${
+      storedAddress.city
+        ? storedAddress.city.length > 0
+          ? `${storedAddress.city}, `
+          : null
+        : null
+    }${
+      storedAddress.state
+        ? storedAddress.state.length > 0
+          ? `${storedAddress.state}, `
+          : null
+        : null
+    }${
+      storedAddress.zip
+        ? storedAddress.zip.length > 0
+          ? `${storedAddress.zip}`
+          : null
+        : null
+    }`;
+
+    const savedAddresses = user
+      ? user.user
+        ? user.user.addresses
+          ? user.user.addresses
+          : []
+        : []
+      : [];
+    for (let i = 0; i < savedAddresses.length; i++) {
+      if (address === savedAddresses[i]) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  saveAddress = (ev) => {
+    ev.preventDefault();
+
+    const storedAddress = window.localStorage.getItem("address")
+      ? JSON.parse(window.localStorage.getItem("address"))
+      : "";
+
+    const address = `${`${storedAddress.line1}, `}${
+      storedAddress.city.length > 0 ? `${storedAddress.city}, ` : null
+    }${storedAddress.state.length > 0 ? `${storedAddress.state}, ` : null}${
+      storedAddress.zip.length > 0 ? `${storedAddress.zip}` : null
+    }`;
+
+    const user = TokenService.getAuthToken();
+
+    UserService.postAddress({
+      user_name: user,
+      address: address,
+    })
+      .then((user) => {
+        this.context.setUser(user);
+        this.setState({ addressSaved: true });
+      })
+      .catch((res) => {
+        this.setState({ error: res });
+      });
+  };
+
   render() {
     this.handleFalseAccess();
 
@@ -83,12 +189,15 @@ export default class InfoResultsPage extends Component {
       ? JSON.parse(window.localStorage.getItem("votingUrls"))
       : {};
 
-    console.log(cAdd);
+    const { currentUser = {} } = this.context;
 
     return (
       <div className="irp-component">
         <div className="irp-title-container">
           <h1 className="irp-title">Results</h1>
+        </div>
+        <div className="irp-error-container">
+          {this.state.error ? this.state.error.error : null}
         </div>
         {this.hasCompleteResponse() ? (
           <div>
@@ -173,6 +282,8 @@ export default class InfoResultsPage extends Component {
           </div>
         ) : null}
         {this.compileResults(cDOL, cEVS, cAdd, cURL)}
+        {this.state.addressSaved ? <p>Address saved!</p> : null}
+        {this.state.addressSaved ? null : this.determineIfSavable(currentUser)}
       </div>
     );
   }

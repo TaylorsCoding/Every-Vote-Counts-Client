@@ -1,0 +1,33 @@
+.sa-component {
+  display: flex;
+  justify-content: center;
+}
+
+.sa-content {
+  align-self: center;
+  font-family: "Archivo Black";
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.sa-text {
+  cursor: pointer;
+}
+
+.sa-delete-button {
+  background-color: unset;
+  border: unset;
+}
+
+.sa-x-image {
+  height: 15px;
+  width: 15px;
+  align-self: center;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+}

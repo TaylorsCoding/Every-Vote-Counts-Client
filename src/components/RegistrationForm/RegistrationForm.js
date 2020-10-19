@@ -14,10 +14,7 @@ export default class RegistrationForm extends Component {
     ev.preventDefault();
     const { full_name, user_name, password, confirm_password } = ev.target;
 
-    console.log(password, confirm_password);
-
     if (password.value !== confirm_password.value) {
-      console.log("here");
       this.setState({
         error: { error: "You did not successfully confirm your password." },
       });
@@ -37,7 +34,6 @@ export default class RegistrationForm extends Component {
         this.props.onRegistrationSuccess();
       })
       .catch((res) => {
-        console.error(res);
         this.setState({ error: res });
       });
   };

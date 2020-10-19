@@ -28,7 +28,7 @@ export default class GetInfoForm extends Component {
       "^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
     );
     const stateRegex = RegExp(
-      "^(([Aa][EeLlKkSsZzRr])|([Cc][AaOoTt])|([Dd][EeCc])|([Ff][MmLl])|([Gg][AaUu])|([Hh][Ii])|([Ii][DdLlNnAa])|([Kk][SsYy])|([Ll][Aa])|([Mm][EeHhDdAaIiNnSsOoTt])|([Nn][EeVvHhJjMmYyCcDd])|([Mm][Pp])|([Oo][HhKkRr])|([Pp][WwAaRr])|([Rr][Ii])|([Ss][CcDd])|([Tt][NnXx])|([Uu][Tt])|([Vv][TtIiAa])|([Ww][AaVvIiYy]))$"
+      "^(([Aa][EeLlKkSsZzRr])|([Cc][AaOoTt])|([Dd][EeCc])|([Ff][MmLl])|([Gg][AaUu])|([Hh][Ii])|([Ii][DdLlNnAa])|([Kk][SsYy])|([Ll][Aa])|([Mm][EeHhDdAaIiNnSsOoTt])|([Nn][EeVvHhJjMmYyCcDd])|([Mm][Pp])|([Oo][HhKkRr])|([Pp][WwAaRr])|([Rr][Ii])|([Ss][CcDd])|([Tt][NnXx])|([Uu][Tt])|([Vv][TtIiAa])|([Ww][AaVvIiYy])|Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|NewsHampshire|NewsJersey|NewsMexico|NewsYork|NorthsCarolina|NorthsDakota|Ohio|Oklahoma|Oregon|Pennsylvania|RhodesIsland|SouthsCarolina|SouthsDakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|WestsVirginia|Wisconsin|Wyoming)$"
     );
     const streetRegex = RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
 
@@ -91,7 +91,6 @@ export default class GetInfoForm extends Component {
       },
     });
     req.execute((response, rawResponse) => {
-      console.log(response);
       if (response.dropOffLocations) {
         window.localStorage.setItem(
           "dropOffLocations",
@@ -140,7 +139,7 @@ export default class GetInfoForm extends Component {
               : "You have included characters in the street address that are not valid."}
             {this.state.stateVer
               ? null
-              : "Please enter the state in a two letter format eg. VA, CA, or TX."}
+              : "Please enter a valid state, either in a two letter format eg. VA, CA or in its full name eg. Virginia, California"}
             {this.state.cityVer ? null : "You have entered."}
           </p>
         </div>
@@ -157,7 +156,7 @@ export default class GetInfoForm extends Component {
                 type="text"
                 name="info-street"
                 id="info-street"
-                placeholder="4110 Chain Bridge Rd"
+                placeholder="3601 Lyon St"
               />
             </div>
           </fieldset>
@@ -172,7 +171,7 @@ export default class GetInfoForm extends Component {
                 className="gif-input"
                 type="text"
                 name="info-city"
-                placeholder="Fairfax"
+                placeholder="San Francisco"
               />
             </div>
           </fieldset>
@@ -187,7 +186,7 @@ export default class GetInfoForm extends Component {
                 className="gif-input"
                 type="text"
                 name="info-state"
-                placeholder="VA"
+                placeholder="CA"
               />
             </div>
           </fieldset>
@@ -202,7 +201,7 @@ export default class GetInfoForm extends Component {
                 className="gif-input"
                 type="text"
                 name="info-zip-code"
-                placeholder="22030"
+                placeholder="94123"
               />
             </div>
           </fieldset>

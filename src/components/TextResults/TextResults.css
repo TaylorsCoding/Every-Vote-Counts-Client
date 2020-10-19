@@ -1,5 +1,4 @@
 .tr-container {
-  margin-bottom: 20px;
   font-family: "Cormorant Garamond";
   text-align: center;
 }
@@ -26,47 +25,5 @@
   font-size: 16px;
   font-family: "Archivo Black";
   border-radius: 5px;
-  width: 80%;
-}
-
-@media only screen and (min-height: 736px) and (min-width: 400px) {
-}
-
-@media only screen and (min-height: 800px) and (min-width: 600px) {
-  .textresults-retry-button {
-    width: 60%;
-  }
-}
-
-@media only screen and (min-height: 1024px) and (min-width: 768px) {
-  .textresults-retry-button {
-    width: 50%;
-  }
-}
-
-@media only screen and (min-width: 300px) {
-  .textresults-retry-button {
-    width: 60%;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .textresults-retry-button {
-    width: 50%;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .textresults-retry-button {
-    width: 40%;
-  }
-}
-
-@media only screen and (min-width: 1400px) {
-  .textresults-container {
-    margin-bottom: 10%;
-  }
-  .textresults-retry-button {
-    width: 30%;
-  }
+  width: 50%;
 }

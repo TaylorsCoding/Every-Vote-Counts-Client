@@ -14,6 +14,7 @@ export default class LoginForm extends Component {
   };
 
   state = { error: null };
+
   handleSubmitJwtAuth = (ev) => {
     ev.preventDefault();
     this.setState({ error: null });
@@ -29,13 +30,19 @@ export default class LoginForm extends Component {
         this.props.onLoginSuccess();
       })
       .catch((res) => {
-        console.error(res);
+        this.setState({ error: res });
       });
   };
 
   render() {
+    const error = this.state.error;
     return (
       <form className="login-form" onSubmit={this.handleSubmitJwtAuth}>
+        <div className="lf-row-error">
+          <div className="lf-col-error">
+            <h3>{error ? error.error : null}</h3>
+          </div>
+        </div>
         <div className="user_name">
           <div>
             <label className="loginform-un-label" htmlFor="loginform-username">

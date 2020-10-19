@@ -18,6 +18,7 @@ import GetInfoPage from "../GetInfoPage/GetInfoPage";
 import InfoResultsPage from "../InfoResultsPage/InfoResultsPage";
 
 import "./App.css";
+import SavedAddressesPage from "../SavedAddressesPage/SavedAddressesPage";
 
 const API_KEY = "AIzaSyDQ1gQGmiYylOah3uNrPSCX0j31L_xsC4M";
 
@@ -31,7 +32,7 @@ class App extends Component {
     },
   };
 
-  state = { hasError: false };
+  state = { error: null };
 
   loadGoogleApi() {
     const script = document.createElement("script");
@@ -54,19 +55,17 @@ class App extends Component {
           this.context.setUser(res);
         })
         .catch((err) => {
-          console.error(err);
+          this.setState({ error: err });
         });
     }
-  }
-
-  static getDerivedStateFromError(error) {
-    console.error(error);
-    return { hasError: true };
   }
 
   render() {
     return (
       <div className="app-container">
+        <div className="app-error-container">
+          {this.state.error ? this.state.error.error : null}
+        </div>
         <header className="app-header">
           <Header />
         </header>
@@ -85,6 +84,7 @@ class App extends Component {
             />
 
             <Route path={"/getinfo"} component={GetInfoPage} />
+            <Route path={"/savedaddresses"} component={SavedAddressesPage} />
             <Route path={"/inforesults"} component={InfoResultsPage} />
             <Route component={NotFoundPage} />
           </Switch>
